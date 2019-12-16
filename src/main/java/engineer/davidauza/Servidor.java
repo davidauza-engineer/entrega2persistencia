@@ -61,7 +61,6 @@ public class Servidor {
             HashMap hashMensaje = stringAHashMap(mensajeCliente);
 
             String codigoTransaccion = (String) hashMensaje.get("idTransaccion");
-
             if (codigoTransaccion.equals(Transaciones.CREACION_CLIENTE.toString())) {
                 insertarUsuarioBaseDeDatos(hashMensaje);
             } else if (codigoTransaccion.equals(Transaciones.CONSULTAR_SALDO_CLIENTE.toString())) {
@@ -84,18 +83,21 @@ public class Servidor {
      * Este método inserta un nuevo usuario en la base de datos.
      */
     private static void insertarUsuarioBaseDeDatos(HashMap<String, String> hashCliente) {
-        String url = "jdbc:mysql://159.203.74.131:3306/banco";
-        String usuario = "banco_db";
-        String contrasena = "BnacoDB";
+        String url = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
+        String usuario = "root";
+        String contrasena = "Diosmeama16my";
         try {
             Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
             Statement sentencia = conexion.createStatement();
-            String sql = "INSERT INTO clientes(nombes, apellidos, ciudad, direccion, telefonos, email)" +
-                    "values(\'" + hashCliente.get("nombres") + "\' \'" + hashCliente.get("apellidos") + "\' \'" +
-                    hashCliente.get("idCiudad") + "\' \'" + hashCliente.get("telefonos") + "\' \'" +
-                    hashCliente.get("email") + "\')";
-            ResultSet setResultados = sentencia.executeQuery(sql);
-            setResultados.close();
+            String sql = "INSERT INTO mydb.cliente (nombres, apellidos, ciudad_id, direccion, email)" +
+                    "VALUES(\'" + hashCliente.get("nombre") + "\', \'" + hashCliente.get("apellido")
+                    + "\', " + hashCliente.get("idCiudad") + ", \'" + hashCliente.get("direccion")
+                    + "\', \'" + hashCliente.get("email") + "\');";
+            System.out.println(sql);
+//            ResultSet setResultados = sentencia.executeQuery(sql);
+            sentencia.executeUpdate(sql);
+//            System.out.println(setResultados.toString());
+//            setResultados.close();
             sentencia.close();
             conexion.close();
         } catch (SQLException e) {
@@ -110,9 +112,9 @@ public class Servidor {
      * @return el HashMap producto de la transformación.
      */
     private static HashMap<String, String> stringAHashMap(String str) {
-        HashMap<String, String> hash = new HashMap<>();
+        HashMap<String, String> hash = new HashMap<String, String>();
         str = str.replaceAll("[{}\\s+]", "");
-        String[] pares = str.split("^[0-9],");
+        String[] pares = str.split(",");
         for (int i = 0; i < pares.length; i++) {
             String par = pares[i];
             String[] keyValue = par.split("=");

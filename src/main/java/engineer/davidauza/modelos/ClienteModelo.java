@@ -38,16 +38,6 @@ public class ClienteModelo {
     private String mEmail;
 
     /**
-     * Almacena el teléfono o los teléfonos del cliente.
-     */
-    private List<String> mTelefonos;
-
-    /**
-     * Almacena la o las cuentas que posee el cliente.
-     */
-    private List<String> mCuentas;
-
-    /**
      * Este método retorna el ID del cliente.
      */
     public int getID() {
@@ -129,33 +119,5 @@ public class ClienteModelo {
      */
     public void setEmail(String mEmail) {
         this.mEmail = mEmail;
-    }
-
-    /**
-     * Este método retorna los teléfonos del cliente.
-     */
-    public List<String> getTelefonos() {
-        return mTelefonos;
-    }
-
-    /**
-     * Este método establece los teléfonos del cliente a través de una lista.
-     */
-    public void setTelefonos(List<String> mTelefonos) {
-        this.mTelefonos = mTelefonos;
-    }
-
-    /**
-     * Este método retorna las cuentas del cliente.
-     */
-    public List<String> getCuentas() {
-        return mCuentas;
-    }
-
-    /**
-     * Este método establece las cuentas del cliente.
-     */
-    public void setCuentas(List<String> mCuentas) {
-        this.mCuentas = mCuentas;
     }
 }

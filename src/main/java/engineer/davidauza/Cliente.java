@@ -28,18 +28,6 @@ public class Cliente {
             "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
     /**
-     * Esta constante almacena la expresión regular para validar los teléfonos del usuario, que
-     * son números entre 7 y 10 dígitos.
-     */
-    private static final String REGEX_TELEFONO = "\\d{7,10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";
-
-    /**
-     * Esta constante almacena la expresión regular para evaluar las cuentas, que son un número de
-     * 10 dígitos cada una.
-     */
-    private static final String REGEX_CUENTA = "\\d{10}";
-
-    /**
      * enum que contiene los tipos de transacciones que puede realizar el cliente.
      */
     private enum Transaciones {
@@ -219,12 +207,6 @@ public class Cliente {
             emailIngresado = sc.nextLine();
         }
         nuevoCliente.setEmail(emailIngresado);
-        System.out.println("Ingrese los teléfonos del usuario separados por comas:");
-        List<String> listaTelefonos = crearLista(REGEX_TELEFONO);
-        nuevoCliente.setTelefonos(listaTelefonos);
-        System.out.println("Ingrese los números de cuenta del cliente separados por comas: ");
-        List<String> listaCuentas = crearLista(REGEX_CUENTA);
-        nuevoCliente.setCuentas(listaCuentas);
         sc.close();
         return nuevoCliente;
     }
@@ -242,7 +224,7 @@ public class Cliente {
         Scanner sc = new Scanner(System.in);
         String datosIngresados = "";
         int entradasValidas = 0;
-        List<String> lista = new ArrayList<>();
+        List<String> lista = new ArrayList<String>();
         do {
             datosIngresados = sc.nextLine();
             datosIngresados = datosIngresados.replaceAll("\\s+", "");
@@ -255,12 +237,6 @@ public class Cliente {
             }
             if (entradasValidas == lista.size()) {
                 break;
-            } else {
-                if (regexAEvaluar.equals(REGEX_TELEFONO)) {
-                    System.out.println("Números de teléfono no válidos. Ingrese números entre 7 y 10 dígitos:");
-                } else {
-                    System.out.println("Números de cuenta no válidos. Ingrese números de 10 dígitos:");
-                }
             }
         } while (entradasValidas != lista.size());
         return lista;
@@ -270,15 +246,13 @@ public class Cliente {
      * Este método crea el HashMap que contiene los datos del cliente creado.
      */
     private static HashMap<String, String> crearHashCliente() {
-        HashMap<String, String> nuevoClienteHash = new HashMap<>();
+        HashMap<String, String> nuevoClienteHash = new HashMap<String, String>();
         nuevoClienteHash.put("idTransaccion", Transaciones.CREACION_CLIENTE.toString());
         nuevoClienteHash.put("nombre", mNuevoCliente.getNombres());
         nuevoClienteHash.put("apellido", mNuevoCliente.getApellidos());
         nuevoClienteHash.put("idCiudad", Integer.toString(mNuevoCliente.getIDCiudad()));
         nuevoClienteHash.put("direccion", mNuevoCliente.getDireccion());
         nuevoClienteHash.put("email", mNuevoCliente.getEmail());
-        nuevoClienteHash.put("telefonos", mNuevoCliente.getTelefonos().toString());
-        nuevoClienteHash.put("cuentas", mNuevoCliente.getCuentas().toString());
         return nuevoClienteHash;
     }
 }
