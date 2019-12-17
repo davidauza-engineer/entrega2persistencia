@@ -1,7 +1,5 @@
 package engineer.davidauza.modelos;
 
-import java.util.List;
-
 /**
  * Esta clase representa a un cliente.
  */
