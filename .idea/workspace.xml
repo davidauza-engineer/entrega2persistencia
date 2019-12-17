@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f9b54c4-e9b0-4210-9049-bc5570aedede" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineer/davidauza/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineer/davidauza/sockets/ClienteSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineer/davidauza/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineer/davidauza/sockets/ServidorSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineer/davidauza/modelos/ClienteModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineer/davidauza/modelos/ClienteModelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/engineer/davidauza/Cliente$Transaciones.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/engineer/davidauza/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/engineer/davidauza/Servidor$Transaciones.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/engineer/davidauza/Servidor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineer/davidauza/sockets/ClienteSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineer/davidauza/sockets/ClienteSocket.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

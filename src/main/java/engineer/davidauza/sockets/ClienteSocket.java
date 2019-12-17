@@ -6,9 +6,6 @@ import java.net.*;
 import java.io.*;
 import java.util.Scanner;
 import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Esta clase contiene el socket que actúa como cliente en el simulador de transacciones.
